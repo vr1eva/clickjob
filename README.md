@@ -2,9 +2,6 @@ Profile card preview
 
 ![image](https://github.com/vr1eva/zipcard/assets/113930888/86852161-a084-44cf-b8aa-52a8802a3d08)
 
-[Original card component]([url](https://zipdev.com/sample-hires/))
-
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
