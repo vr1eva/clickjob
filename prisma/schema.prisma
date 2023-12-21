@@ -13,17 +13,16 @@ model User {
   email       String
   password    String?
   createdAt   DateTime @default(now())
-
-  providers   Provider[]
+  jobAds      JobAd[]
 }
 
-model Provider {
-  id           Int      @id @default(autoincrement())
-  userId       Int
-  providerName String
-  providerUserId String
-  user         User     @relation(fields: [userId], references: [id])
-  createdAt    DateTime @default(now())
-
-  @@unique([providerName, providerUserId])
+model JobAd {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String
+  location    String
+  postedBy    User      @relation(fields: [postedById], references: [id])
+  postedById  Int
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
