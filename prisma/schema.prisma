@@ -7,21 +7,21 @@ datasource db {
   relationMode = "prisma"
 }
 
-model User {
+model Account {
   id          Int      @id @default(autoincrement())
   username    String
   email       String
   password    String?
   createdAt   DateTime @default(now())
-  jobAds      JobAd[]
+  job      Job[]
 }
 
-model JobAd {
+model Job {
   id          Int       @id @default(autoincrement())
   title       String
   description String
   location    String
-  postedBy    User      @relation(fields: [postedById], references: [id])
+  postedBy    Account      @relation(fields: [postedById], references: [id])
   postedById  Int
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt

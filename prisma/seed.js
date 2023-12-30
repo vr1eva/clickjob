@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 
 async function main() {
     // Create users
-    const user1 = await prisma.user.create({
+    const account1 = await prisma.account.create({
         data: {
             username: 'user1',
             email: 'user1@example.com',
@@ -12,21 +12,21 @@ async function main() {
     });
 
     // Create job ads
-    const jobAd1 = await prisma.jobAd.create({
+    const jobAd1 = await prisma.job.create({
         data: {
             title: 'Frontend Developer',
             description: 'Exciting opportunity for a skilled frontend developer!',
             location: 'Remote',
-            postedById: user1.id,
+            postedById: account1.id,
         },
     });
 
-    const jobAd2 = await prisma.jobAd.create({
+    const jobAd2 = await prisma.job.create({
         data: {
             title: 'UI/UX Designer',
             description: 'Join our creative team and shape user experiences!',
             location: 'In-office (City)',
-            postedById: user1.id,
+            postedById: account1.id,
         },
     });
 

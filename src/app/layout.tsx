@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter as FontSans } from "next/font/google"
-import { ClerkProvider } from '@clerk/nextjs'
+import { ClerkProvider, UserButton } from '@clerk/nextjs'
 import './globals.css'
 import Link from "next/link"
 import { cn } from "@/lib/utils"
@@ -28,6 +28,7 @@ export default function RootLayout({
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable)}>
           <Button><Link href="/jobs">Jobs</Link></Button>
+          <UserButton/>
           {children}</body>
       </html>
     </ClerkProvider>
