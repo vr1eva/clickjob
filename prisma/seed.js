@@ -3,6 +3,10 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 async function main() {
+    // Delete all existing records
+    await prisma.job.deleteMany({});
+    await prisma.account.deleteMany({});
+
     // Create users
     const account1 = await prisma.account.create({
         data: {
