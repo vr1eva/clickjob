@@ -5,9 +5,7 @@ export default async function Page() {
   const { userId } = auth()
 
   if (userId) {
-    return (
-      <UserButton />
-    )
+    permanentRedirect("/jobs")
   } else {
     permanentRedirect("/sign-in")
   }

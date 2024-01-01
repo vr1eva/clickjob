@@ -7,23 +7,22 @@ datasource db {
   relationMode = "prisma"
 }
 
-model User {
+model Account {
   id          Int      @id @default(autoincrement())
   username    String
   email       String
   password    String?
   createdAt   DateTime @default(now())
-
-  providers   Provider[]
+  job      Job[]
 }
 
-model Provider {
-  id           Int      @id @default(autoincrement())
-  userId       Int
-  providerName String
-  providerUserId String
-  user         User     @relation(fields: [userId], references: [id])
-  createdAt    DateTime @default(now())
-
-  @@unique([providerName, providerUserId])
+model Job {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String
+  location    String
+  postedBy    Account      @relation(fields: [postedById], references: [id])
+  postedById  Int
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
